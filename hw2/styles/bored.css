@@ -1,0 +1,29 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button:focus,
+button:hover {
+  background-color: cadetblue;
+  color: black;
+}
+
+#bored-button {
+  cursor: pointer;
+  margin: 3em;
+}
+
+#card {
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: #555;
+  background-color: #fff;
+  border-radius: 12%;
+  padding: 18px;
+  border: 2px solid #bacdd8;
+}
