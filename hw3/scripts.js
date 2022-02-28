@@ -14,10 +14,6 @@ const detect = async (net) => {
     // Set canvas height and width
     const canvas = document.getElementById("mesh");
     // BEGIN PART 4
-    const img = document.getElementById("img");
-    const imgWidth = img.width;
-    const imgHeight = img.height;
-
     canvas.width = imgWidth;
     canvas.height = imgHeight;
     // END PART 4
@@ -38,6 +34,8 @@ const detect = async (net) => {
     img.style.visibility = "visible";
 };
 
+let color;
+
 const drawRect = (predictions, ctx) => {
     // Loop through each prediction
     predictions.forEach((prediction) => {
@@ -46,7 +44,7 @@ const drawRect = (predictions, ctx) => {
         const text = prediction["class"];
 
         // Set styling
-        const color = Math.floor(Math.random() * 16777215).toString(16);
+        color = Math.floor(Math.random() * 16777215).toString(16);
         ctx.strokeStyle = "#" + color;
         ctx.font = "18px Arial";
 
@@ -84,6 +82,7 @@ const getCaption = (predictions) => {
             lineText += " #" + entity;
             const line = document.createElement("p");
             line.innerText = lineText;
+            line.style.color = "#" + color;
             caption.appendChild(line);
         } catch (error) {
             console.log(error);
@@ -103,7 +102,6 @@ input.addEventListener("change", (event) => {
     const img = document.getElementById("img");
     img.src = URL.createObjectURL(event.target.files[0])
     // What should you run to drive the execuation of all your functions?
-    console.log("hi");
     runCoco();
 })
 // END PART 8
