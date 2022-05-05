@@ -65,7 +65,6 @@ router.put("/:id", async (req, res) => {
       }
     }
     try {
-      // YOUR CODE HERE
       await Photographer.findByIdAndUpdate(req.body.userId, {
         $set: req.body,
       });
